@@ -1,20 +1,20 @@
+import BaseDatabaseOps from "mongo-baseops";
 import checkParamType from "./checkParamType";
-import { ArrayLikeDocument, DbOpsList, Document, FormatterList, ValidatorList } from "./types";
-
-const { OperationError } = require("../lib/util");
+import { Document, FormatterList, ValidatorList } from "./types";
+import { NotSupportedError, OperationError } from "./errors";
 
 /**
  * @class BaseOperations
  * 
  * basic operations of an entity
  * 1. create
- * 2. update
- * 3. list
- * 4. detail
- * 5. remove
- * 
- * all method supports single and batch input
- * 
+ * 2. Create Many
+ * 3. update
+ * 4. updateMany
+ * 5. list
+ * 6. remove
+ * 7. removeMany
+ *  * 
  * for detailed documentation
  * **see: ./baseOperations.md**
  */
@@ -23,9 +23,9 @@ class BaseOperations {
 
     public formatter: FormatterList
     public validator: ValidatorList
-    public dbOps: DbOpsList
+    public dbOps: BaseDatabaseOps
 
-    constructor(formatter: FormatterList, validator: ValidatorList, dbOps: DbOpsList) {
+    constructor(formatter: FormatterList, validator: ValidatorList, dbOps: BaseDatabaseOps) {
 
         checkParamType("formatter", formatter, "object");
         checkParamType("validator", validator, "object");
@@ -36,110 +36,81 @@ class BaseOperations {
         this.dbOps = dbOps;
     }
 
-    /**
-     * @method create
-     * creates new entity
-     * 
-     * validate > format > save to database
-     * 
-     * input can be object (for single entity creation) of array of objects (for multiple entity creation)
-     * 
-     * @param {Array<object> | object} input user input
-     * @returns {Promise< Array<object> | object >} newly created entity, array if input was for multiple entity, object if single
-     */
 
-    async create(input: Document | ArrayLikeDocument) {
+
+    async create<T extends Document>(input: T) {
         checkParamType("input", input, ["object", "array"])
 
-        // array input are not arrays but number indexed objects
-        if (input[0] && !!input[0]) {
-            // validate, format and write multiple entities to db
+        // validate, format and write single entity to db
 
-            const errorList = [];
-            for (let item in input) {
-                const errors = await this.validator.create(input[item]);
-                if (errors) errorList.push(errors);
-            }
-            if (errorList.length) throw new OperationError(400, errorList, "Invalid input");
+        const errors = await this.validator.create(input);
+        if (errors) throw new OperationError(400, errors, "Invalid input");
 
-            let entityList = [];
-            for (let item in input) {
-                const entity = await this.formatter.create(input[item]);
-                entityList.push(entity);
-            }
+        const entity = await this.formatter.create(input);
 
-            const writeResults = await this.dbOps.writeMany(entityList);
-            return writeResults;
-
-        } else {
-            // validate, format and write single entity to db
-
-            const errors = await this.validator.create(input);
-            if (errors) throw new OperationError(400, errors, "Invalid input");
-
-            const entity = await this.formatter.create(input);
-
-            const writeResults = await this.dbOps.writeOne(entity);
-            return writeResults;
-        }
+        const singleWriteResult = await this.dbOps.writeOne(entity);
+        return singleWriteResult as T & { _id: string };
     }
 
-    /**
-     * @method update
-     * updates an existing entity
-     * 
-     * validate > format > save to database
-     * 
-     * input can be object (for single entity update) of array of objects (for multiple entity update)
-     * 
-     * @param {Array<object> | object} input - user input
-     * @returns {Promise <Array<object> | object>} only the part of entity that was updated, array if multiple updated, 
-     * object if single
-     */
-    async update(input: Document | ArrayLikeDocument) {
+
+
+    async createMany<T extends Document[]>(input: T) {
+        checkParamType("input", input, ["object", "array"])
+
+        if (!this.validator.createMany || !this.formatter.createMany) {
+            throw new NotSupportedError();
+        }
+
+        const errorList = await this.validator.createMany(input);
+        if (errorList) throw new OperationError(400, errorList, "Invalid input");
+
+        const entityList = await this.formatter.createMany(input);
+
+        const bulkWriteResult = await this.dbOps.writeMany(entityList);
+        return bulkWriteResult;
+    }
+
+
+
+    async update<T extends Document>(input: T) {
 
         checkParamType("input", input, ["array", "object"])
 
+        const updateErrors = await this.validator.update(input);
+        if (updateErrors) throw new OperationError(400, updateErrors, "Invalid input");
 
-        // array input are not arrays but number indexed objects
-        if (!!input[0]) {
-            // multiple
-            const errorList = [];
+        const updatedEntity = await this.formatter.update(input);
 
-            for (let item in input) {
-                const errors = await this.validator.update(input[item]);
-                if (errors) errorList.push(errors);
-            }
+        const updateResult = await this.dbOps.updateOne(input["_id"], updatedEntity);
+        if (updateResult["matchedCount"] == 0) throw new OperationError(400, { _id: "No entry with given id" });
 
-            if (errorList.length) throw new OperationError(400, errorList, "Invalid input");
-
-            let entityList = [];
-            for (let item in input) {
-                const entity = await this.formatter.update(input[item]);
-                entity["_id"] = input[item]._id;
-                entityList.push(entity);
-            }
-
-            const updateResults = await this.dbOps.updateMany(entityList);
-            const successfulUpdates = updateResults.filter(i => i["matchedCount"] > 0);
-
-            if (!successfulUpdates.length) throw new OperationError(400, { _id: "No entry with given ids" });
-
-            return entityList;
-        } else {
-            // single
-
-            const errors = await this.validator.update(input);
-            if (errors) throw new OperationError(400, errors, "Invalid input");
-
-            const entity = await this.formatter.update(input);
-
-            const updateResult = await this.dbOps.updateOne(input["_id"], entity);
-            if (updateResult["matchedCount"] == 0) throw new OperationError(400, { _id: "No entry with given id" });
-
-            return entity;
-        }
+        return updatedEntity;
     }
+
+
+
+    async updateMany<T extends Document[]>(input: T) {
+
+        checkParamType("input", input, ["array", "object"])
+
+        if (!this.validator.updateMany || !this.formatter.updateMany) {
+            throw new NotSupportedError();
+        }
+
+        const updateErrorList = await this.validator.updateMany(input);
+        if (updateErrorList) throw new OperationError(400, updateErrorList, "Invalid input");
+
+        const updatedEntityList = await this.formatter.updateMany(input);
+        const updateResults = await this.dbOps.updateMany(updatedEntityList);
+
+        const successfulUpdates = updateResults.filter(i => i["matchedCount"] > 0);
+
+        if (!successfulUpdates.length) throw new OperationError(400, { _id: "No entry with given ids" });
+
+        return updatedEntityList;
+    }
+
+
 
     /**
      * list entity by filtering, resolving and paginating
@@ -168,35 +139,7 @@ class BaseOperations {
 
     }
 
-    /**
-     * get entity detail
-     * 
-     * validate > read detail from db
-     * 
-     * @param {Array<string> | string} id 
-     * @param {object} resolve - see respective databases read operation docs for supported options
-     * @returns {Promise < Array<object> | object>} array if multiple id passed  in array, object if single id string passed
-     */
-    async detail(id: string, resolve: Document = {}) {
-        checkParamType("id", id, ["string", "Array"]);
-        checkParamType("resolve", resolve, "object");
 
-        if (this.validator.detail) {
-            const errors = await this.validator.detail(id, resolve);
-            if (errors) throw new OperationError(400, errors, "Invalid input");
-        }
-
-        if (Array.isArray(id)) {
-            const results = await this.dbOps.readMany(id, resolve);
-            if (!results || !results.length) throw new OperationError(400, { id: "no entry with given IDs" })
-            return results;
-        }
-
-
-        const result = await this.dbOps.readOne(id, resolve);
-        if (!result) throw new OperationError(400, { id: "no entry with given ID" })
-        return result;
-    }
 
     /**
      * remove entity
@@ -206,30 +149,38 @@ class BaseOperations {
      * @param {Array<string> | string} id multiple ids in array or single string id
      * @returns {Promise<object>} 
      */
-    async remove(id: string | string[]) {
+    async remove(id: string) {
         checkParamType("id", id, ["string", "Array"]);
 
 
         if (this.validator.remove) {
-            const errors = await this.validator.remove(id);
-            if (errors) throw new OperationError(400, errors, "Invalid input");
+            const removeErrors = await this.validator.remove(id);
+            if (removeErrors) throw new OperationError(400, removeErrors, "Invalid input");
         }
 
-        let result;
+        let removeResult = await this.dbOps.removeOne(id);
 
-        if (Array.isArray(id)) {
-            result = await this.dbOps.removeMany(id);
-        } else {
-            result = await this.dbOps.removeOne(id);
-        }
+        if (removeResult["deletedCount"] == 0) throw new OperationError(400, { id: "no entry with given ID" })
 
-        if (result["deletedCount"] == 0) throw new OperationError(400, { id: "no entry with given ID" })
-        return {
-            deletedCount: result["deletedCount"]
-        };
+        return { deletedCount: removeResult["deletedCount"] };
 
     }
 
+
+    
+    async removeMany(id: string[]) {
+        checkParamType("id", id, ["string", "Array"]);
+
+        if (this.validator.removeMany) {
+            const removeErrorList = await this.validator.removeMany(id);
+            if (removeErrorList) throw new OperationError(400, removeErrorList, "Invalid input");
+        }
+
+        let removeResult = await this.dbOps.removeMany(id);
+
+        if (removeResult["deletedCount"] == 0) throw new OperationError(400, { id: "no entry with given ID" })
+        return { deletedCount: removeResult["deletedCount"] };
+    }
 }
 
 export default BaseOperations;

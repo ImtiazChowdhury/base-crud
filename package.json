@@ -2,11 +2,12 @@
   "name": "base-crud",
   "version": "1.0.0",
   "description": "base crud ops class based",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "mongo-baseops": "^1.1.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
