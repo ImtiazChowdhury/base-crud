@@ -49,7 +49,7 @@ class BaseOperations {
         const entity = await this.formatter.create(input);
 
         const singleWriteResult = await this.dbOps.writeOne(entity);
-        return singleWriteResult as T & { _id: string };
+        return singleWriteResult;
     }
 
 
