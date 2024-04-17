@@ -20,14 +20,14 @@ class TestOps extends __1.default {
 const dbOps = new mongo_baseops_1.default("testBaseOps", "testBaseOpsDB", "mongodb://127.0.0.1:27017");
 function test() {
     return __awaiter(this, void 0, void 0, function* () {
-        const dummyFormatter = (d) => {
+        const dummyFormatter = (d) => __awaiter(this, void 0, void 0, function* () {
             console.log(d);
             return d;
-        };
-        const dummyValidator = (d) => {
+        });
+        const dummyValidator = (d) => __awaiter(this, void 0, void 0, function* () {
             console.log(d);
             return null;
-        };
+        });
         const testOps = new TestOps({
             create: dummyFormatter,
             update: dummyFormatter,
@@ -51,7 +51,7 @@ function test() {
         console.log({ listResult });
         const removeResult = yield testOps.remove(createResult._id);
         console.log({ removeResult });
-        const removeManyResult = yield testOps.removeMany(createManyResult.map(i => i._id || ""));
+        const removeManyResult = yield testOps.removeMany(createManyResult.map(i => i._id));
         console.log({ removeManyResult });
     });
 }

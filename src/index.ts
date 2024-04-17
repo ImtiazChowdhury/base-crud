@@ -4,6 +4,8 @@ import { Document, FormatterList, ValidatorList, inputErrorList } from "./types"
 import { NotSupportedError, OperationError } from "./errors";
 import { ObjectId } from "mongodb";
 
+export type * from "./types"
+
 /**
  * @class BaseOperations
  * 

@@ -6,7 +6,7 @@
   "types": "build/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate-doc": "npx typedoc ./src/index.ts --plugin typedoc-plugin-missing-exports --plugin typedoc-plugin-markdown"
+    "generate-doc": "npx typedoc ./src/index.ts "
   },
   "dependencies": {
     "mongo-baseops": "^1.7.0",

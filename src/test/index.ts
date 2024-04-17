@@ -11,11 +11,11 @@ const dbOps = new BaseDBOps("testBaseOps", "testBaseOpsDB", "mongodb://127.0.0.1
 async function test() {
 
 
-    const dummyFormatter = (d: any) => {
+    const dummyFormatter = async (d: any) => {
         console.log(d);
         return d;
     }
-    const dummyValidator = (d: any) => {
+    const dummyValidator = async(d: any) => {
         console.log(d)
         return null;
     }

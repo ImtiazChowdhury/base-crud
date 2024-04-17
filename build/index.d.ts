@@ -44,10 +44,10 @@ declare class BaseOperations {
      * @param {Array<string> | string} id multiple ids in array or single string id
      * @returns {Promise<object>}
      */
-    remove(id: string | ObjectId): Promise<{
+    remove(id: string | ObjectId | undefined): Promise<{
         deletedCount: number;
     }>;
-    removeMany(id: Array<string | ObjectId>): Promise<{
+    removeMany(id: Array<string | ObjectId | undefined>): Promise<{
         deletedCount: number;
     }>;
 }
