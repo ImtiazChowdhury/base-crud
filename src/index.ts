@@ -1,7 +1,8 @@
 import BaseDatabaseOps from "mongo-baseops";
 import checkParamType from "./checkParamType";
-import { Document, FormatterList, ValidatorList } from "./types";
+import { Document, FormatterList, ValidatorList, inputErrorList } from "./types";
 import { NotSupportedError, OperationError } from "./errors";
+import { ObjectId } from "mongodb";
 
 /**
  * @class BaseOperations
@@ -16,7 +17,6 @@ import { NotSupportedError, OperationError } from "./errors";
  * 7. removeMany
  *  * 
  * for detailed documentation
- * **see: ./baseOperations.md**
  */
 
 class BaseOperations {
@@ -62,7 +62,7 @@ class BaseOperations {
         }
 
         const errorList = await this.validator.createMany(input);
-        if (errorList) throw new OperationError(400, errorList, "Invalid input");
+        if (errorList.some((i: inputErrorList | null) => i != null)) throw new OperationError(400, errorList, "Invalid input");
 
         const entityList = await this.formatter.createMany(input);
 
@@ -98,7 +98,7 @@ class BaseOperations {
         }
 
         const updateErrorList = await this.validator.updateMany(input);
-        if (updateErrorList) throw new OperationError(400, updateErrorList, "Invalid input");
+        if (updateErrorList.some((i: inputErrorList | null) => i != null)) throw new OperationError(400, updateErrorList, "Invalid input");
 
         const updatedEntityList = await this.formatter.updateMany(input);
         const updateResults = await this.dbOps.updateMany(updatedEntityList);
@@ -149,9 +149,8 @@ class BaseOperations {
      * @param {Array<string> | string} id multiple ids in array or single string id
      * @returns {Promise<object>} 
      */
-    async remove(id: string) {
-        checkParamType("id", id, ["string", "Array"]);
-
+    async remove(id: string | ObjectId) {
+        checkParamType("id", id, ["string", "object"]);
 
         if (this.validator.remove) {
             const removeErrors = await this.validator.remove(id);
@@ -167,9 +166,9 @@ class BaseOperations {
     }
 
 
-    
-    async removeMany(id: string[]) {
-        checkParamType("id", id, ["string", "Array"]);
+
+    async removeMany(id: Array<string | ObjectId>) {
+        checkParamType("id", id, ["Array"]);
 
         if (this.validator.removeMany) {
             const removeErrorList = await this.validator.removeMany(id);
