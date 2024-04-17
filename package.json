@@ -2,13 +2,14 @@
   "name": "@imtiazchowdhury/base-crud",
   "version": "1.2.0",
   "description": "base crud ops class based",
-  "main": "build/index.js",
+  "main": "build/index",
+  "types": "build/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate-doc": "npx typedoc ./src/index.ts --plugin typedoc-plugin-missing-exports --plugin typedoc-plugin-markdown"
   },
   "dependencies": {
-    "mongo-baseops": "^1.4.0",
+    "mongo-baseops": "^1.7.0",
     "mongodb": "^6.5.0",
     "typedoc": "^0.25.13",
     "typedoc-plugin-markdown": "^3.17.1",

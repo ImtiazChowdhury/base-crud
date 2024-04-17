@@ -149,7 +149,7 @@ class BaseOperations {
      * @param {Array<string> | string} id multiple ids in array or single string id
      * @returns {Promise<object>} 
      */
-    async remove(id: string | ObjectId) {
+    async remove(id: string | ObjectId | undefined) {
         checkParamType("id", id, ["string", "object"]);
 
         if (this.validator.remove) {
@@ -167,7 +167,7 @@ class BaseOperations {
 
 
 
-    async removeMany(id: Array<string | ObjectId>) {
+    async removeMany(id: Array<string | ObjectId | undefined>) {
         checkParamType("id", id, ["Array"]);
 
         if (this.validator.removeMany) {

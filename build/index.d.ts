@@ -14,16 +14,13 @@ import { ObjectId } from "mongodb";
  * 7. removeMany
  *  *
  * for detailed documentation
- * **see: ./baseOperations.md**
  */
 declare class BaseOperations {
     formatter: FormatterList;
     validator: ValidatorList;
     dbOps: BaseDatabaseOps;
     constructor(formatter: FormatterList, validator: ValidatorList, dbOps: BaseDatabaseOps);
-    create<T extends Document>(input: T): Promise<T & {
-        _id: string;
-    }>;
+    create<T extends Document>(input: T): Promise<import("mongodb").OptionalId<import("bson").Document>>;
     createMany<T extends Document[]>(input: T): Promise<import("mongodb").OptionalId<import("bson").Document>[]>;
     update<T extends Document>(input: T): Promise<Document>;
     updateMany<T extends Document[]>(input: T): Promise<Document[]>;

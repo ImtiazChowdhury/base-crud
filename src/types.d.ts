@@ -13,8 +13,8 @@ export declare interface ValidatorList {
     update: (userInput: Document) => Primise<inputErrorList | null>
     updateMany?: (userInputList: Document[]) => Primise<inputErrorList[] | null[]>
     list?: (filter: Document, resolve: Document, paginationOptions: Document) => Primise<inputErrorList | null>
-    remove?: (id: string | ObjectId) => Primise<inputErrorList | null>
-    removeMany?: (id: Array<string | ObjectId>) => Primise<inputErrorList[] | null[]>
+    remove?: (id: string | ObjectId | undefined) => Primise<inputErrorList | null>
+    removeMany?: (id: Array<string | ObjectId | undefined>) => Primise<inputErrorList[] | null[]>
 }
 
 export declare interface FormatterList {

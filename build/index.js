@@ -27,7 +27,6 @@ const errors_1 = require("./errors");
  * 7. removeMany
  *  *
  * for detailed documentation
- * **see: ./baseOperations.md**
  */
 class BaseOperations {
     constructor(formatter, validator, dbOps) {

@@ -52,7 +52,7 @@ async function test() {
     const removeResult = await testOps.remove(createResult._id);
     console.log({ removeResult })
 
-    const removeManyResult = await testOps.removeMany(createManyResult.map(i => i._id || ""))
+    const removeManyResult = await testOps.removeMany(createManyResult.map(i => i._id))
     console.log({removeManyResult})
 
 
