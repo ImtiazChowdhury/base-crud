@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](internal_.md) / [internal](internal_.internal.md) / pipeline
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](internal_.md) / [internal](internal_.internal.md) / pipeline
 
 # Namespace: pipeline
 

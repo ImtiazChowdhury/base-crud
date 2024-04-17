@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](internal_.md) / EventEmitter
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](internal_.md) / EventEmitter
 
 # Namespace: EventEmitter
 

@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / BaseDatabaseOps
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / BaseDatabaseOps
 
 # Class: BaseDatabaseOps
 
@@ -274,7 +274,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `id` | `string` \| [`ObjectId`](internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md) |
+| `id` | `undefined` \| `string` \| [`ObjectId`](internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md) |
 
 #### Returns
 
@@ -294,7 +294,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `entityList` | [`Document`](../interfaces/internal_.Document-1.md)[] |
+| `entityList` | [`OptionalId`](../modules/internal_.md#optionalid)\<[`Document`](../interfaces/internal_.Document-1.md)\>[] |
 | `options?` | [`UpdateOptions`](../interfaces/internal_._Z__baseOps_node_modules_mongodb_mongodb_.UpdateOptions.md) |
 
 #### Returns
@@ -316,7 +316,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `id` | `string` \| [`ObjectId`](internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md) |
-| `entity` | [`Document`](../interfaces/internal_.Document-1.md) |
+| `entity` | [`OptionalId`](../modules/internal_.md#optionalid)\<[`Document`](../interfaces/internal_.Document-1.md)\> |
 | `options?` | [`UpdateOptions`](../interfaces/internal_._Z__baseOps_node_modules_mongodb_mongodb_.UpdateOptions.md) |
 
 #### Returns
@@ -352,18 +352,18 @@ ___
 
 ### writeOne
 
-▸ **writeOne**(`doc`, `options?`): `Promise`\<[`Document`](../interfaces/internal_.Document-1.md)\>
+▸ **writeOne**(`doc`, `options?`): `Promise`\<[`OptionalId`](../modules/internal_.md#optionalid)\<[`Document`](../interfaces/internal_.Document-1.md)\>\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `doc` | [`Document`](../interfaces/internal_.Document-1.md) |
+| `doc` | [`OptionalId`](../modules/internal_.md#optionalid)\<[`Document`](../interfaces/internal_.Document-1.md)\> |
 | `options?` | [`InsertOneOptions`](../interfaces/internal_._Z__baseOps_node_modules_mongodb_mongodb_.InsertOneOptions.md) |
 
 #### Returns
 
-`Promise`\<[`Document`](../interfaces/internal_.Document-1.md)\>
+`Promise`\<[`OptionalId`](../modules/internal_.md#optionalid)\<[`Document`](../interfaces/internal_.Document-1.md)\>\>
 
 #### Defined in
 

@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](internal_.md) / "node:stream/promises"
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](internal_.md) / "node:stream/promises"
 
 # Namespace: "node:stream/promises"
 

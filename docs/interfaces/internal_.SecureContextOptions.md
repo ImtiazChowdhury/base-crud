@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / SecureContextOptions
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / SecureContextOptions
 
 # Interface: SecureContextOptions
 

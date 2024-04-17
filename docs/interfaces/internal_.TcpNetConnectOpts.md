@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / TcpNetConnectOpts
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / TcpNetConnectOpts
 
 # Interface: TcpNetConnectOpts
 

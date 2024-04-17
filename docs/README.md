@@ -1,1 +1,1 @@
-base-crud / [Exports](modules.md)
+@imtiazchowdhury/base-crud / [Exports](modules.md)

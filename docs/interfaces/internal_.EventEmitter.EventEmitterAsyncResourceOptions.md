@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / [EventEmitter](../modules/internal_.EventEmitter.md) / EventEmitterAsyncResourceOptions
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / [EventEmitter](../modules/internal_.EventEmitter.md) / EventEmitterAsyncResourceOptions
 
 # Interface: EventEmitterAsyncResourceOptions
 

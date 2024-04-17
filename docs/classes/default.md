@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / default
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / default
 
 # Class: default
 
@@ -57,7 +57,7 @@ for detailed documentation
 
 #### Defined in
 
-[src/index.ts:28](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L28)
+[src/index.ts:28](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L28)
 
 ## Properties
 
@@ -67,7 +67,7 @@ for detailed documentation
 
 #### Defined in
 
-[src/index.ts:26](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L26)
+[src/index.ts:26](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L26)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:24](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L24)
+[src/index.ts:24](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L24)
 
 ___
 
@@ -87,13 +87,13 @@ ___
 
 #### Defined in
 
-[src/index.ts:25](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L25)
+[src/index.ts:25](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L25)
 
 ## Methods
 
 ### create
 
-▸ **create**\<`T`\>(`input`): `Promise`\<`T` & \{ `_id`: `string`  }\>
+▸ **create**\<`T`\>(`input`): `Promise`\<[`OptionalId`](../modules/internal_.md#optionalid)\<[`Document`](../interfaces/internal_.Document-1.md)\>\>
 
 #### Type parameters
 
@@ -109,11 +109,11 @@ ___
 
 #### Returns
 
-`Promise`\<`T` & \{ `_id`: `string`  }\>
+`Promise`\<[`OptionalId`](../modules/internal_.md#optionalid)\<[`Document`](../interfaces/internal_.Document-1.md)\>\>
 
 #### Defined in
 
-[src/index.ts:41](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L41)
+[src/index.ts:41](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L41)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:57](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L57)
+[src/index.ts:57](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L57)
 
 ___
 
@@ -167,7 +167,7 @@ for supported filtering, resolving and paginating properties see respective data
 
 #### Defined in
 
-[src/index.ts:126](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L126)
+[src/index.ts:126](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L126)
 
 ___
 
@@ -183,7 +183,7 @@ validate > remove from db
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `id` | `string` \| [`ObjectId`](internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md) | multiple ids in array or single string id |
+| `id` | `undefined` \| `string` \| [`ObjectId`](internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md) | multiple ids in array or single string id |
 
 #### Returns
 
@@ -191,7 +191,7 @@ validate > remove from db
 
 #### Defined in
 
-[src/index.ts:152](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L152)
+[src/index.ts:152](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L152)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `id` | (`string` \| [`ObjectId`](internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md))[] |
+| `id` | (`undefined` \| `string` \| [`ObjectId`](internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md))[] |
 
 #### Returns
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:170](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L170)
+[src/index.ts:170](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L170)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:75](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L75)
+[src/index.ts:75](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L75)
 
 ___
 
@@ -263,4 +263,4 @@ ___
 
 #### Defined in
 
-[src/index.ts:92](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/index.ts#L92)
+[src/index.ts:92](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/index.ts#L92)

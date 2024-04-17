@@ -1,6 +1,6 @@
-[base-crud](README.md) / Exports
+[@imtiazchowdhury/base-crud](README.md) / Exports
 
-# base-crud
+# @imtiazchowdhury/base-crud
 
 ## Table of contents
 

@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / UnderlyingSourcePullCallback
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / UnderlyingSourcePullCallback
 
 # Interface: UnderlyingSourcePullCallback\<R\>
 

@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / SharedArrayBufferConstructor
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / SharedArrayBufferConstructor
 
 # Interface: SharedArrayBufferConstructor
 

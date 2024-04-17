@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / ValidatorList
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / ValidatorList
 
 # Interface: ValidatorList
 
@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[src/types.d.ts:11](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L11)
+[src/types.d.ts:11](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L11)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[src/types.d.ts:12](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L12)
+[src/types.d.ts:12](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L12)
 
 ___
 
@@ -88,13 +88,13 @@ ___
 
 #### Defined in
 
-[src/types.d.ts:15](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L15)
+[src/types.d.ts:15](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L15)
 
 ___
 
 ### remove
 
-• `Optional` **remove**: (`id`: `string` \| [`ObjectId`](../classes/internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md)) => `Primise`\<``null`` \| [`inputErrorList`](internal_.inputErrorList.md)\>
+• `Optional` **remove**: (`id`: `undefined` \| `string` \| [`ObjectId`](../classes/internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md)) => `Primise`\<``null`` \| [`inputErrorList`](internal_.inputErrorList.md)\>
 
 #### Type declaration
 
@@ -104,7 +104,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `id` | `string` \| [`ObjectId`](../classes/internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md) |
+| `id` | `undefined` \| `string` \| [`ObjectId`](../classes/internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md) |
 
 ##### Returns
 
@@ -112,13 +112,13 @@ ___
 
 #### Defined in
 
-[src/types.d.ts:16](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L16)
+[src/types.d.ts:16](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L16)
 
 ___
 
 ### removeMany
 
-• `Optional` **removeMany**: (`id`: (`string` \| [`ObjectId`](../classes/internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md))[]) => `Primise`\<[`inputErrorList`](internal_.inputErrorList.md)[] \| ``null``[]\>
+• `Optional` **removeMany**: (`id`: (`undefined` \| `string` \| [`ObjectId`](../classes/internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md))[]) => `Primise`\<[`inputErrorList`](internal_.inputErrorList.md)[] \| ``null``[]\>
 
 #### Type declaration
 
@@ -128,7 +128,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `id` | (`string` \| [`ObjectId`](../classes/internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md))[] |
+| `id` | (`undefined` \| `string` \| [`ObjectId`](../classes/internal_._Z__baseOps_node_modules_mongodb_mongodb_.BSON.ObjectId.md))[] |
 
 ##### Returns
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/types.d.ts:17](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L17)
+[src/types.d.ts:17](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L17)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[src/types.d.ts:13](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L13)
+[src/types.d.ts:13](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L13)
 
 ___
 
@@ -184,4 +184,4 @@ ___
 
 #### Defined in
 
-[src/types.d.ts:14](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L14)
+[src/types.d.ts:14](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L14)

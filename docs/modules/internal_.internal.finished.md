@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](internal_.md) / [internal](internal_.internal.md) / finished
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](internal_.md) / [internal](internal_.internal.md) / finished
 
 # Namespace: finished
 

@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / FormatterList
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / FormatterList
 
 # Interface: FormatterList
 
@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/types.d.ts:21](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L21)
+[src/types.d.ts:21](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L21)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[src/types.d.ts:22](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L22)
+[src/types.d.ts:22](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L22)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/types.d.ts:23](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L23)
+[src/types.d.ts:23](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L23)
 
 ___
 
@@ -107,4 +107,4 @@ ___
 
 #### Defined in
 
-[src/types.d.ts:24](https://github.com/ImtiazChowdhury/base-crud/blob/c9007b40f1499f3a98ae74c80cf8dc16b89aa8d7/src/types.d.ts#L24)
+[src/types.d.ts:24](https://github.com/ImtiazChowdhury/base-crud/blob/52265cc9233d15ebf7e2c6c4b4c9ce039ced895a/src/types.d.ts#L24)

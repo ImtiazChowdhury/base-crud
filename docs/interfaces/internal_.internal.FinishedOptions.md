@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / [internal](../modules/internal_.internal.md) / FinishedOptions
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / [\<internal\>](../modules/internal_.md) / [internal](../modules/internal_.internal.md) / FinishedOptions
 
 # Interface: FinishedOptions
 

@@ -1,4 +1,4 @@
-[base-crud](../README.md) / [Exports](../modules.md) / \<internal\>
+[@imtiazchowdhury/base-crud](../README.md) / [Exports](../modules.md) / \<internal\>
 
 # Module: \<internal\>
 
