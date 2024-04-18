@@ -1,6 +1,7 @@
 import BaseDatabaseOps from "mongo-baseops";
 import { Document, FormatterList, ValidatorList } from "./types";
 import { ObjectId } from "mongodb";
+export type * from "./types";
 /**
  * @class BaseOperations
  *

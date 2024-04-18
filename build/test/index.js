@@ -22,7 +22,7 @@ function test() {
     return __awaiter(this, void 0, void 0, function* () {
         const dummyFormatter = (d) => __awaiter(this, void 0, void 0, function* () {
             console.log(d);
-            return d;
+            return Object.assign(Object.assign({}, d), { createdData: new Date });
         });
         const dummyValidator = (d) => __awaiter(this, void 0, void 0, function* () {
             console.log(d);
@@ -31,8 +31,8 @@ function test() {
         const testOps = new TestOps({
             create: dummyFormatter,
             update: dummyFormatter,
-            createMany: (input) => __awaiter(this, void 0, void 0, function* () { return input.map(i => dummyFormatter(i)); }),
-            updateMany: (input) => __awaiter(this, void 0, void 0, function* () { return input.map(i => dummyFormatter(i)); })
+            createMany: (input) => __awaiter(this, void 0, void 0, function* () { return input; }),
+            updateMany: (input) => __awaiter(this, void 0, void 0, function* () { return input; })
         }, {
             create: dummyValidator,
             createMany: (input) => __awaiter(this, void 0, void 0, function* () { return input.map(i => dummyValidator(i)); }),

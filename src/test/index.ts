@@ -13,7 +13,10 @@ async function test() {
 
     const dummyFormatter = async (d: any) => {
         console.log(d);
-        return d;
+        return {
+            ...d,
+            createdData: new Date
+        };
     }
     const dummyValidator = async(d: any) => {
         console.log(d)
@@ -23,8 +26,8 @@ async function test() {
     const testOps = new TestOps({
         create: dummyFormatter,
         update: dummyFormatter,
-        createMany: async input=>input.map(i=> dummyFormatter(i)),
-        updateMany: async input=>input.map(i=> dummyFormatter(i))
+        createMany: async input=>input,
+        updateMany: async input=>input
     }, {
         create: dummyValidator,
         createMany: async input=>input.map(i=> dummyValidator(i)),
