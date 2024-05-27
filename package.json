@@ -9,8 +9,10 @@
     "generate-doc": "npx typedoc ./src/index.ts "
   },
   "dependencies": {
+    "joi": "^17.13.1",
     "mongo-baseops": "^1.7.0",
     "mongodb": "^6.5.0",
+    "mongodb-paginate": "^1.4.0",
     "typedoc": "^0.25.13",
     "typedoc-plugin-markdown": "^3.17.1",
     "typedoc-plugin-missing-exports": "^2.2.0"
