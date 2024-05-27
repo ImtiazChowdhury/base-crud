@@ -1,4 +1,5 @@
-import { ObjectId } from "mongodb";
+import Joi from "joi";
+import { ObjectId, WithId } from "mongodb";
 
 export interface Document {
     [key: string]: any;
@@ -6,21 +7,25 @@ export interface Document {
 export interface inputErrorList {
     [key: string]: any;
 }
-export interface ValidatorList {
-    create: (userInput: Document) => Promise<inputErrorList | null>
-    createMany?: (userInputList: Document[]) => Promise<inputErrorList[] | null[]>
-    update: (userInput: Document) => Promise<inputErrorList | null>
-    updateMany?: (userInputList: Document[]) => Promise<inputErrorList[] | null[]>
-    list?: (filter: Document, resolve: Document, paginationOptions: Document) => Promise<inputErrorList | null>
-    remove?: (id: string | ObjectId | undefined) => Promise<inputErrorList | null>
-    removeMany?: (id: Array<string | ObjectId | undefined>) => Promise<inputErrorList[] | null[]>
+export type BaseSchemaType<DocumentType> = {
+    create: Joi.Schema<DocumentType>;
+    update: Joi.Schema;
+    remove: Joi.Schema;
+    list: Joi.Schema;
 }
 
-export interface FormatterList {
-    create: (validatedInput: Document) => Promise<Document>
-    createMany?: (validatedInputList: Document[]) => Promise<Document[]>
-    update: (validatedInput: Document) => Promise<Document>
-    updateMany?: (validatedInput: Document[]) => Promise<Document[]>
+export type BaseValidator<DocumentType, FilterType> = {
+    create?: (input: DocumentType) => Promise<DocumentType | null>;
+    update?: (input: WithId<DocumentType>) => Promise<WithId<DocumentType> | null>;
+    remove?: (input: ObjectId[]) => Promise<any | null>;
+    list?: (input: FilterType) => Promise<FilterType | null>;
+}
+
+export type BaseFormatter<DocumentType, FilterType> = {
+    create?: (input: DocumentType) => Promise<DocumentType>;
+    update?: (input: WithId<DocumentType>) => Promise<WithId<DocumentType>>;
+    remove?: (input: ObjectId[]) => Promise<ObjectId[]>;
+    list?: (input: FilterType) => Promise<FilterType>;
 }
 
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
